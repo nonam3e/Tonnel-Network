@@ -1,6 +1,6 @@
-import {compile, NetworkProvider} from "@ton-community/blueprint";
-import {JettonMinter} from "../wrappers/JettonMinter";
-import {Address, toNano} from "ton-core";
+import { compile, NetworkProvider } from '@ton/blueprint';
+import { JettonMinter } from '../wrappers/JettonMinter';
+import { Address, toNano } from '@ton/core';
 
 export async function run(provider: NetworkProvider) {
     let codeWallet = await compile('JettonWallet');

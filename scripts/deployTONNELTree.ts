@@ -1,11 +1,10 @@
-import {compile, NetworkProvider} from "@ton-community/blueprint";
-import {Address, toNano} from "ton-core";
-import {Drill} from "../wrappers/Drill";
-import {JettonMinter} from "../wrappers/JettonMinter";
-import {TonnelTree} from "../wrappers/TonnelTree";
+import { compile, NetworkProvider } from '@ton/blueprint';
+import { Address, toNano } from '@ton/core';
+import { Drill } from '../wrappers/Drill';
+import { JettonMinter } from '../wrappers/JettonMinter';
+import { TonnelTree } from '../wrappers/TonnelTree';
 
 export async function run(provider: NetworkProvider) {
-
     // const tonnelTree = provider.open(
     //     TonnelTree.createFromConfig(
     //         {
@@ -18,7 +17,8 @@ export async function run(provider: NetworkProvider) {
     // );
 
     const tonnelTree = provider.open(
-        TonnelTree.createFromAddress(Address.parse('EQAwrorAS9dhU3TqwL78wfbBrAsqBKD7CyGzLuwzNj3LYm3B')))
+        TonnelTree.createFromAddress(Address.parse('EQAwrorAS9dhU3TqwL78wfbBrAsqBKD7CyGzLuwzNj3LYm3B'))
+    );
 
     // await tonnelTree.sendDeploy(provider.sender(), toNano('0.1'));
     // await provider.waitForDeploy(tonnelTree.address);
@@ -34,6 +34,6 @@ export async function run(provider: NetworkProvider) {
     await tonnelTree.sendSetMiner(provider.sender(), {
         miner: Address.parse('EQDnp89hEqOlak2ydKmlUGuTSNi8NhWvSPEP1mQu1hY30vny'),
         value: toNano('0.05'),
-        miner_fee: toNano('0.24')
-    })
+        miner_fee: toNano('0.24'),
+    });
 }
